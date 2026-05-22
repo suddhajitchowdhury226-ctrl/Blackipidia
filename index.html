@@ -1635,6 +1635,115 @@
       }
     }
 
+    /* ─── MODULES GRID ─── */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .modules-grid .module-card:nth-child(n+5) {
+      grid-column: span 1;
+    }
+
+    /* Last row: 3 cards centered — span trick */
+    .modules-grid .module-card:nth-child(5) {
+      grid-column: 1;
+    }
+
+    .modules-grid .module-card:nth-child(6) {
+      grid-column: 2;
+    }
+
+    .modules-grid .module-card:nth-child(7) {
+      grid-column: 3;
+    }
+
+    .module-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .module-card:hover {
+      border-color: var(--border-gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .module-img-wrap {
+      width: 100%;
+      height: 160px;
+      background: linear-gradient(135deg, rgba(212, 160, 23, 0.06), rgba(192, 57, 43, 0.04));
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    .module-body {
+      padding: 1rem 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .module-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .module-body p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .module-body a {
+      font-size: 0.78rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 0.25rem;
+    }
+
+    .module-body a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 1024px) {
+      .modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .modules-grid .module-card:nth-child(5),
+      .modules-grid .module-card:nth-child(6),
+      .modules-grid .module-card:nth-child(7) {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .modules-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ─── HERO BANNER ─── */
     .hero-banner-wrap {
       width: 100%;
@@ -2016,52 +2125,124 @@
     <div class="section-inner">
       <div class="section-head fade-in">
         <div class="section-label">Ecosystem</div>
-        <h2 class="section-title">The <span class="grad-text">Blackipedia</span> Ecosystem</h2>
+        <h2 class="section-title">App Structure &amp; <span class="grad-text">Core Modules</span></h2>
         <p class="section-sub">A complete platform built to preserve, celebrate, and power Black knowledge globally.</p>
       </div>
-      <div class="services-grid fade-in">
-        <div class="service-card">
-          <div class="service-icon"><i data-lucide="bot" style="width:24px;height:24px;color:#D4A017;"></i></div>
-          <h3>AfroAI Assistant</h3>
-          <p>An AI trained on Afrocentric knowledge, ready to answer deep questions about Black history, culture, and
-            achievement.</p>
-          <a href="#ai">Try AfroAI →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i data-lucide="shopping-bag" style="width:24px;height:24px;color:#D4A017;"></i>
+      <div class="modules-grid fade-in">
+
+        <!-- 1 -->
+        <div class="module-card">
+          <div class="module-img-wrap">
+            <img src="Public/1st.png" alt="Continent-Based Discovery" style="width:100%;height:100%;object-fit:cover;">
           </div>
-          <h3>Global Marketplace<span class="service-coming">Coming Soon</span></h3>
-          <p>Connect with Black-owned businesses, artisans, and creators from across the global diaspora.</p>
-          <a href="#">Learn More →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i data-lucide="graduation-cap" style="width:24px;height:24px;color:#D4A017;"></i>
+          <div class="module-body">
+            <h3><i data-lucide="globe"
+                style="width:16px;height:16px;color:#D4A017;vertical-align:middle;margin-right:6px;"></i>Continent-Based
+              Discovery</h3>
+            <p>Explore Black culture, innovation, and history across 7 Continents, starting from America. Features
+              include an interactive world map, deep-dives into countries with local stories, Black-owned businesses,
+              and geo-tagged rich media content.</p>
           </div>
-          <h3>Learning & Certification</h3>
-          <p>Structured courses and certifications in Black history, culture, and studies — from beginners to advanced
-            scholars.</p>
-          <a href="#">View Courses →</a>
         </div>
-        <div class="service-card">
-          <div class="service-icon"><i data-lucide="trending-up" style="width:24px;height:24px;color:#D4A017;"></i>
+
+        <!-- 2 -->
+        <div class="module-card">
+          <div class="module-img-wrap">
+            <img src="Public/2nd.png" alt="AfroAI Assistant" style="width:100%;height:100%;object-fit:cover;">
           </div>
-          <h3>AfroFinTech Hub<span class="service-coming">Coming Soon</span></h3>
-          <p>Financial literacy, group economics, and wealth-building resources rooted in Black economic philosophy.</p>
-          <a href="#">Learn More →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i data-lucide="message-circle" style="width:24px;height:24px;color:#D4A017;"></i>
+          <div class="module-body">
+            <h3><i data-lucide="bot"
+                style="width:16px;height:16px;color:#D4A017;vertical-align:middle;margin-right:6px;"></i>AfroAI
+              Assistant</h3>
+            <p>A multilingual, AI-powered assistant providing culturally-aware guidance. Built on a custom LLM trained
+              with African/Black history, finance, and culture. It offers conversational answers, voice/text inputs, and
+              handles diverse queries.</p>
+            <a href="#ai">Try AfroAI →</a>
           </div>
-          <h3>Community & Events</h3>
-          <p>Join live discussions, webinars, film screenings, and cultural events with a global Black community.</p>
-          <a href="#community">Join Community →</a>
         </div>
-        <div class="service-card">
-          <div class="service-icon"><i data-lucide="map" style="width:24px;height:24px;color:#D4A017;"></i></div>
-          <h3>Study Tours</h3>
-          <p>Immersive travel experiences to historically significant Afrocentric sites across the world.</p>
-          <a href="#">Explore Tours →</a>
+
+        <!-- 3 -->
+        <div class="module-card">
+          <div class="module-img-wrap">
+            <img src="Public/3rd.png" alt="AfroFinTech Hub" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="module-body">
+            <h3><i data-lucide="trending-up"
+                style="width:16px;height:16px;color:#D4A017;vertical-align:middle;margin-right:6px;"></i>AfroFinTech Hub
+            </h3>
+            <p>Offers financial tools, education, and empowerment, including a digital wallet for future token/NFT
+              economy, financial literacy content, business grants, crypto/DeFi education, and micro-investment group
+              tools.</p>
+            <a href="#">Learn More →</a>
+          </div>
         </div>
+
+        <!-- 4 -->
+        <div class="module-card">
+          <div class="module-img-wrap">
+            <img src="Public/4th.png" alt="Global Black Marketplace" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="module-body">
+            <h3><i data-lucide="shopping-bag"
+                style="width:16px;height:16px;color:#D4A017;vertical-align:middle;margin-right:6px;"></i>Global Black
+              Marketplace</h3>
+            <p>A centralized eCommerce platform to buy directly from verified Black-owned businesses globally. Features
+              include product search by continent/country, integrated checkout, storefront builder for vendors, and
+              future dropshipping tools.</p>
+            <a href="#">Learn More →</a>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="module-card">
+          <div class="module-img-wrap">
+            <img src="Public/5th.png" alt="Free Learning & Storytelling Academy"
+              style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="module-body">
+            <h3><i data-lucide="book-open"
+                style="width:16px;height:16px;color:#D4A017;vertical-align:middle;margin-right:6px;"></i>Free Learning
+              &amp; Storytelling Academy</h3>
+            <p>A space to share, preserve, and educate through user-submitted oral histories and success stories. It
+              includes AI-assisted story writing, community voting, and micro-courses on finance, culture, activism, AI,
+              and coding.</p>
+            <a href="#">View Courses →</a>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="module-card">
+          <div class="module-img-wrap">
+            <img src="Public/7th.png" alt="Blackipedia Community + Events"
+              style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="module-body">
+            <h3><i data-lucide="users"
+                style="width:16px;height:16px;color:#D4A017;vertical-align:middle;margin-right:6px;"></i>Blackipedia
+              Community + Events</h3>
+            <p>Facilitates global connection within the Black community. Users can create/join local and virtual events,
+              utilize RSVP and calendar sync, participate in chatrooms and discussion threads, and find Black
+              professionals nearby.</p>
+            <a href="#community">Join Community →</a>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="module-card">
+          <div class="module-img-wrap">
+            <!-- image coming soon -->
+          </div>
+          <div class="module-body">
+            <h3><i data-lucide="share-2"
+                style="width:16px;height:16px;color:#D4A017;vertical-align:middle;margin-right:6px;"></i>MLM / Referral
+              Network <span class="service-coming">Optional</span></h3>
+            <p>Designed to grow the platform through empowered word-of-mouth. Features an invite and earn system with
+              tracked referrals, gamified contribution tracking (badges, rewards), and tier-based partner earnings with
+              an integrated dashboard.</p>
+            <a href="#refer">Learn More →</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -2481,7 +2662,7 @@
         }
       });
     }, { threshold: 0.1 });
-    document.querySelectorAll('.services-grid, .continents-grid, .community-grid, .about-stats').forEach(el => {
+    document.querySelectorAll('.services-grid, .modules-grid, .continents-grid, .community-grid, .about-stats').forEach(el => {
       Array.from(el.children).forEach(child => {
         child.style.cssText += 'opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease;';
       });
